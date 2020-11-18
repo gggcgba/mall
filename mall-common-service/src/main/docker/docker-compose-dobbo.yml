@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  zookeeper:
+    image: zookeeper
+    ports:
+      - 2181:2181
+  admin:
+    image: cao2068959/dubbo-admin:2.7
+    depends_on:
+      - zookeeper
+    ports:
+      - 8090:8080
+    environment:
+      - admin.registry.address=zookeeper://10.101.218.114:2181
+      - admin.config-center=zookeeper://10.101.218.114:2181
+      - admin.metadata-report.address=zookeeper://10.101.218.114:2181
+      - admin.registry.group=dubbo
+      - admin.config-center.group=dubbo
+      - admin.metadata-report.group=dubbo
+      - admin.apollo.token=e16e5cd903fd0c97a116c873b448544b9d086de9
+      - admin.apollo.appId=test
+      - admin.apollo.env=dev
+      - admin.apollo.cluster=default
+      - admin.apollo.namespace=dubbo
