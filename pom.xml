@@ -27,6 +27,7 @@
     <properties>
         <java.version>1.8</java.version>
         <docker.image.prefix>gggcgba</docker.image.prefix>
+        <hostname>10.101.218.114</hostname>
     </properties>
 
     <dependencies>
